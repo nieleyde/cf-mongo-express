@@ -3,6 +3,6 @@ applications:
 - name: cf-mongo-express
   memory: 256M
   instances: 1
-  host: cf-mongo-express
+  random-route: true
   services:
-    - mongotest
+    - mymongo

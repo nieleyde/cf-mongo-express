@@ -11,24 +11,18 @@ Get started
 -------------
 Clone this repository.
 ```
-git clone https://github.com/komushi/cf-mongo-express.git
+git clone https://github.com/nieleyde/cf-mongo-express.git
 cd cf-mongo-express
 ```
 
 Edit the manifest.yml regarding the mongodb service name.
-
-Clone this repository.
-```
-git clone https://github.com/komushi/cf-mongo-express.git
-cd cf-mongo-express
-```
 
 Remember to install [cf cli](https://github.com/cloudfoundry/cli/releases) first. Then, push the application:
 ```
 cf push
 ```
 
-You can access your app at test/test as credentials.
+You can access your app.
 ```
 http://cf-mongo-express.<your-cf-app-domain>
 ```
