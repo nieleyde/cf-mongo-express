@@ -10,12 +10,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "cfenv": "^1.0.0",
-    "mongo-express": "^0.21.0"
+    "cfenv": "^1.0.4",
+    "mongo-uri": "^0.1.2",
+    "mongo-express": "^0.39.2"
   },
     "repository" : {
         "type" : "git",
         "url" : "https://github.com/nieleyde/cf-mongo-express.git"
     }
-}
 }
