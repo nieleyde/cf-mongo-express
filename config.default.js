@@ -5,14 +5,14 @@ var MongoURI = require('mongo-uri')
 
 var mongo;
 
-//var vcap_services = JSON.parse(process.env.VCAP_SERVICES);
+var vcap_services = JSON.parse(process.env.VCAP_SERVICES);
 var mongoUri = MongoURI.parse(cfenv.getAppEnv().getService('mymongo').credentials.uri);
 
-//console.error(cfenv.getAppEnv().getService('mymongo'));
-//console.error('START------->');
-//console.error(vcap_services);
-//console.error(mongoUri);
-//console.error('END------->');
+console.error(cfenv.getAppEnv().getService('mymongo'));
+console.error('START------->');
+console.error(vcap_services);
+console.error(mongoUri);
+console.error('END------->');
 
 module.exports = {
   mongodb: {
@@ -25,7 +25,7 @@ module.exports = {
     port:   mongoUri.ports[0],
 
     //ssl: connect to the server using secure SSL
-    ssl: '',
+    ssl: true,
 
     //sslValidate: validate mongod server certificate against CA
     sslValidate: false,
@@ -42,7 +42,7 @@ module.exports = {
     //set admin to true if you want to turn on admin features
     //if admin is true, the auth list below will be ignored
     //if admin is true, you will need to enter an admin username/password below (if it is needed)
-    admin: false,
+    admin: true,
 
     // >>>>  If you are using regular accounts, fill out auth details in the section below
     // >>>>  If you have admin auth, leave this section empty and skip to the next section
@@ -52,9 +52,9 @@ module.exports = {
        * Add as many databases as you want!
        */
       {
-        database: mongoUri.database,
-        username: mongoUri.username,
-        password: mongoUri.password,
+//        database: mongoUri.database,
+//        username: mongoUri.username,
+//        password: mongoUri.password,
       },
     ],
 
@@ -62,8 +62,8 @@ module.exports = {
     //  >>>>  Using an admin account allows you to view and edit all databases, and view stats
 
     //leave username and password empty if no admin account exists
-    adminUsername: '',
-    adminPassword: '',
+    adminUsername: mongoUri.username,
+    adminPassword: mongoUri.password,
 
     //whitelist: hide all databases except the ones in this list  (empty list for no whitelist)
     whitelist: [],
